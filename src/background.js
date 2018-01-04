@@ -187,6 +187,10 @@ function clearItems(queueId) {
 function queueTab(tabState) {
     if (!isInWhitelist(tabState.url)) {
         new Notification("标签已加入队列")
+        chrome.tabs.query({"active": true,},function(tabs){
+            chrome.tabs.sendMessage(tabs[0].id, {})
+        })
+
         console.log("Queue tab: " +  tabState.title);
         // Create item
         var item = new Item(tabState.id, tabState.windowId, tabState.url, tabState.title, tabState.status, false);
@@ -326,6 +330,7 @@ function updateBadgeCounter() {
             if (!currentTab) {
                 return;
             }
+
             var badgeColor = "#00ff00";
             var currentQueue = getQueue(currentTab.windowId).items;
             if (currentQueue.length > 0) {
