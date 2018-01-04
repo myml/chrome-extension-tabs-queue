@@ -186,6 +186,7 @@ function clearItems(queueId) {
  */
 function queueTab(tabState) {
     if (!isInWhitelist(tabState.url)) {
+        new Notification("标签已加入队列")
         console.log("Queue tab: " +  tabState.title);
         // Create item
         var item = new Item(tabState.id, tabState.windowId, tabState.url, tabState.title, tabState.status, false);

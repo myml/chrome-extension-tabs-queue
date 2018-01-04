@@ -1,5 +1,6 @@
 .onoffswitch {
-    display: inline-block;
+    display:none;
+    /*display: inline-block;*/
     position: relative;
     width: 90px;
     vertical-align: middle;

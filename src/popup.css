@@ -136,6 +136,7 @@ a {
   margin: 0.5em 0;
 }
 .clickable {
+  display:none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
